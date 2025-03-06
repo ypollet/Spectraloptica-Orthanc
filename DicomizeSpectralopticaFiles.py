@@ -47,10 +47,10 @@ class Filter(Enum):
 
 
 orthanc_server = (
-    "http://localhost:8042"  # "https://naturalheritage.africamuseum.be/Orthanc"
+    "https://naturalheritage.africamuseum.be/Orthanc"  #  "http://localhost:8042"
 )
 
-path_to_project = "data/sample-cropped"
+path_to_project = "data/sample-same_sized"
 SOURCE = f"{path_to_project}/*.jpg"
 calib_file = f"{path_to_project}/spectral.json"
 images = sorted(glob.glob(SOURCE))
@@ -130,7 +130,7 @@ for image in spectral_dict["spectral"]:
     ds.BitsStored = 8
     ds.HighBit = 7
     ds.PixelRepresentation = 0
-    ds.PhotometricInterpretation = "RGB"
+    ds.PhotometricInterpretation = "YBR_FULL_422"
 
     ds["PixelData"].VR = "OB"  # always for encapsulated pixel data
     ds.is_little_endian = True
@@ -218,7 +218,7 @@ for image_label in spectral_dict["individualImages"]:
     ds.BitsStored = 8
     ds.HighBit = 7
     ds.PixelRepresentation = 0
-    ds.PhotometricInterpretation = "RGB"
+    ds.PhotometricInterpretation = "YBR_FULL_422"
 
     ds["PixelData"].VR = "OB"  # always for encapsulated pixel data
     ds.is_little_endian = True
