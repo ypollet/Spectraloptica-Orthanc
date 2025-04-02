@@ -46,9 +46,7 @@ class Filter(Enum):
     IR = 800
 
 
-orthanc_server = (
-    "https://naturalheritage.africamuseum.be/Orthanc"  #  "http://localhost:8042"
-)
+orthanc_server = "http://localhost:8042"
 
 path_to_project = "data/sample-same_sized"
 SOURCE = f"{path_to_project}/*.jpg"
